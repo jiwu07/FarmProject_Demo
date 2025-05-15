@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6714b82a7344a46b992c4271bf3d45, type: 3}
+  m_Name: GardnerSO
+  m_EditorClassIdentifier: 
+  id: 0
+  characterName: Gardner
+  description: Hi, your planet might need some water!!
+  icon: {fileID: 21300000, guid: 011bb20a3cd704bf2bfe625b012e71e3, type: 3}
+  prefab: {fileID: 6933825080707168147, guid: c0afb9a259e304be0ac9aaed1f6dedf6, type: 3}

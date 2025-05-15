@@ -20,29 +20,31 @@ public class PlayerClickMove : MonoBehaviour
     void Awake()
     {
         mainCam = Camera.main;
-        InputManager.Click += HandleClick;
+        InputManager.ClickMove += HandleClickMove;
         animator = currentPlayer.transform.GetChild(0).GetComponent<Animator>(); 
     }
 
     private void Update()
     {
-        if (!playerAgent.pathPending && playerAgent.remainingDistance <= playerAgent.stoppingDistance)
+        /*if (!playerAgent.pathPending && playerAgent.remainingDistance <= playerAgent.stoppingDistance)
         {
             if (currentTarget != null)
             {
-                currentTarget.OnInteract();
+                currentTarget.OnClick(playerAgent);
                 currentTarget = null;
             }
-        }
+        }*/
     }
 
-    void HandleClick(Vector2 screenPos)
+    void HandleClickMove(Vector2 screenPos)
     {
+        //move
         Ray ray = mainCam.ScreenPointToRay(screenPos);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             if (hit.collider.CompareTag(Tag.INTERACTABLE))
             {
+                hit.collider.GetComponent<InteractableObject>().OnClick(playerAgent);
                 currentTarget = hit.collider.GetComponent<InteractableObject>();
                 playerAgent.stoppingDistance = currentTarget.interactionRange;
                 playerAgent.SetDestination(currentTarget.transform.position);

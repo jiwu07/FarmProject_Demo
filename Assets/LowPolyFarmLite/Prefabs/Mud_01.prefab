@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8209775890507910426}
   - component: {fileID: 2290102815593137865}
   - component: {fileID: 9189126237707102089}
-  - component: {fileID: 8269695273906536407}
+  - component: {fileID: 3515759597672157572}
   m_Layer: 0
   m_Name: Mud_01
   m_TagString: Interactable
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &8269695273906536407
+--- !u!114 &3515759597672157572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8209775890509911002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4cd65bcd1904c8d831afcae1d8e778, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d71c14640c5d4892aa9c22a4cb14738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 1.5
