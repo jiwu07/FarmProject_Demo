@@ -13,7 +13,6 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        // 单例模式
         if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
@@ -22,17 +21,14 @@ public class InputManager : MonoBehaviour
 
         Instance = this;
 
-        // 初始化 Input Actions
         gameControl = new GameControl();
         gameControl.Player.Enable();
 
-        // 注册点击事件
         gameControl.Player.Click.performed += ctx => StartCoroutine(HandleClick());
     }
 
     void OnDestroy()
     {
-        // 解绑事件，防止报错
         if (gameControl != null)
         {
             gameControl.Player.Click.performed -= ctx => StartCoroutine(HandleClick());
@@ -40,35 +36,34 @@ public class InputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 点击后延迟一帧判断 UI 状态并传递点击位置
+    /// delayed UI status
     /// </summary>
     private IEnumerator HandleClick()
     {
-        yield return new WaitForEndOfFrame(); // 确保 UI 状态是最新的
+        //make sure UI status is newest
+        yield return new WaitForEndOfFrame(); 
 
         if (IsPointerOverUI())
         {
-            Debug.Log("点击在 UI 上，忽略点击");
+            //Debug.Log("uiiii");
             yield break;
         }
 
         Vector2 clickPos = gameControl.Player.Position.ReadValue<Vector2>();
-        ClickMove?.Invoke(clickPos); // 分发事件给其他系统
+        ClickMove?.Invoke(clickPos); 
     }
 
-    /// <summary>
-    /// 判断当前点击是否在 UI 上
-    /// </summary>
+
     private bool IsPointerOverUI()
     {
-        // 触屏设备上判断 UI
+        // touchscreen
         if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
         {
             int touchId = Touchscreen.current.primaryTouch.touchId.ReadValue();
             return EventSystem.current.IsPointerOverGameObject(touchId);
         }
 
-        // 鼠标设备上判断 UI
+        // mouse
         return EventSystem.current.IsPointerOverGameObject();
     }
 }

@@ -24,12 +24,5 @@ public class FollowTarget : MonoBehaviour
         // camera follow player
         transform.position = player.transform.position - offset;
 
-        //mouse change fielview
-        //float scroll = Input.GetAxis("Mouse ScrollWheel") * scrollSpeed;
-       // Camera.main.fieldOfView += scroll;
-
-        Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView, 30, 70);
-        
-
     }
 }

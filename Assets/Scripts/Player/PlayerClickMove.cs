@@ -8,33 +8,17 @@ public class PlayerClickMove : MonoBehaviour
     [SerializeField]private UnityEngine.AI.NavMeshAgent playerAgent;
 
     private Vector3 targetPosition;
-    private Animator animator;
-
-    private bool isMoving = false;
-
     private Camera mainCam;
     private GameControl inputActions;
     private InteractableObject currentTarget;
-    [SerializeField]private GameObject currentPlayer;
+    
 
-    void Awake()
+    void Start()
     {
         mainCam = Camera.main;
         InputManager.ClickMove += HandleClickMove;
-        animator = currentPlayer.transform.GetChild(0).GetComponent<Animator>(); 
     }
 
-    private void Update()
-    {
-        /*if (!playerAgent.pathPending && playerAgent.remainingDistance <= playerAgent.stoppingDistance)
-        {
-            if (currentTarget != null)
-            {
-                currentTarget.OnClick(playerAgent);
-                currentTarget = null;
-            }
-        }*/
-    }
 
     void HandleClickMove(Vector2 screenPos)
     {

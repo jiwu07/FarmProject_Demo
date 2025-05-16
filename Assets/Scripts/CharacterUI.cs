@@ -4,42 +4,33 @@ using UnityEngine;
 
 public class CharacterUI : MonoBehaviour
 {
-    public static CharacterUI Instance; 
-    public GameObject characterDetailUI;
-    public GameObject characterList;
+    public static CharacterUI Instance;
+    [SerializeField] private CharacterDetailUI characterDetailUI;
+    [SerializeField] private GameObject characterList;
 
-    public GameObject content;
-    public GameObject itemPreFab;
+    [SerializeField] private GameObject content;
+    [SerializeField] private GameObject itemPreFab;
 
     private bool isShow = false;
     
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
         Instance = this;
        
     }
 
-    
-    /*public void AddCharacter(ItemSO itemSO)
-    {
-        GameObject item = Instantiate(itemPreFab);
-        item.transform.parent = content.transform;
-        
-        item.GetComponent<ItemUI>().IniteItemUI(itemSO);
-
-    }
-
-    */
+   
     public void ShowCharacterDetails(CharacterSO itemSO)
     {
-        CharacterDetailUI.Instance.IniteDetail(itemSO);
-        CharacterDetailUI.Instance.Show();
+        characterDetailUI.Show();
+        characterDetailUI.IniteDetail(itemSO);
+        
     }
 
     
@@ -52,6 +43,7 @@ public class CharacterUI : MonoBehaviour
         {
             Debug.Log("Character UI is shown");
             characterList.gameObject.SetActive(false);
+            characterDetailUI.Hide();
             isShow = false;
             return;
         }
@@ -72,7 +64,7 @@ public class CharacterUI : MonoBehaviour
         }
         
         //create new item
-        List<CharacterSO> characters = CharacterManager.instance.characters;
+        List<CharacterSO> characters = CharacterManager.instance.GetCharacters();
         foreach (var character in characters)
         {
             GameObject go = Instantiate(itemPreFab, content.transform);

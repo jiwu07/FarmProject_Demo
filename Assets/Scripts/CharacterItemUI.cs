@@ -16,8 +16,8 @@ public class CharacterItemUI : MonoBehaviour
 
     public void ShowDetail()
     {
-        //show character details todo
+        //show character details 
         CharacterUI.Instance.ShowCharacterDetails(characterSO);
-        
+        Debug.Log("characterSO");
     }
 }

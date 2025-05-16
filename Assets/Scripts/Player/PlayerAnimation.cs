@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField]private NavMeshAgent agent;
+    private NavMeshAgent agent;
     private Animator animator;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        agent = GameObject.Find("Player").GetComponent<NavMeshAgent>();
     }
     void Update()
     {
@@ -37,5 +38,11 @@ public class PlayerAnimation : MonoBehaviour
     void Collect()
     {
         animator.SetTrigger("Collect");
+    }
+
+    void Water()
+    {
+        animator.SetTrigger("Water");
+  
     }
 }

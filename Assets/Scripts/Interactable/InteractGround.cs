@@ -5,8 +5,9 @@ using UnityEngine;
 public class InteractGround : InteractableObject
 {
     private bool isInteractable = true;
-    public virtual void OnClick(UnityEngine.AI.NavMeshAgent playerAgent)
+    public override void OnClick(UnityEngine.AI.NavMeshAgent playerAgent)
     {
+        if (isInteractable) return;
         Debug.Log($"{name} InteractGround 土地 被交互了！");
         // 可以扩展为对话、采集、触发事件等
     }
