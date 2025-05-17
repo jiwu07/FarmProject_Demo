@@ -18,7 +18,6 @@ public class CharacterManager : MonoBehaviour
             return;
         }
         instance = this;
-        Debug.Log(" character Manager");
 
         InitialCharacter();
     }
@@ -26,7 +25,6 @@ public class CharacterManager : MonoBehaviour
     private void InitialCharacter()
     {
         if (characters.Count < 0 || player.childCount > 0) return;
-        Debug.Log("inital character");
         SwitchCharacter(characters[0]);
     }
 

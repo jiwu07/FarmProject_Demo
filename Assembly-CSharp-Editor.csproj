@@ -836,11 +836,11 @@
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>/Users/emma/Documents/GitHub/jiwu07/Upjers_FarmProject/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VSCode.Editor">
-     <HintPath>/Users/emma/Documents/GitHub/jiwu07/Upjers_FarmProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
      <HintPath>/Users/emma/Documents/GitHub/jiwu07/Upjers_FarmProject/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VSCode.Editor">
+     <HintPath>/Users/emma/Documents/GitHub/jiwu07/Upjers_FarmProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
      <HintPath>/Users/emma/Documents/GitHub/jiwu07/Upjers_FarmProject/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>

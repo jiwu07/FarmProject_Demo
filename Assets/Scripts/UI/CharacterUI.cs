@@ -33,6 +33,11 @@ public class CharacterUI : MonoBehaviour
         
     }
 
+    public void Hide()
+    {
+        characterDetailUI.Hide();
+        characterList.SetActive(false);
+    }
     
     /// <summary>
     /// Click on the button to show/Hide the character list
@@ -41,9 +46,9 @@ public class CharacterUI : MonoBehaviour
     {
         if (isShow)
         {
-            Debug.Log("Character UI is shown");
             characterList.gameObject.SetActive(false);
             characterDetailUI.Hide();
+            InventoryUI.Instance.Hide();
             isShow = false;
             return;
         }

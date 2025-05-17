@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class CharacterItemUI : MonoBehaviour
 {
-    private CharacterSO characterSO;
     [SerializeField]private Image icon;
-
+    private CharacterSO characterSO;
     public void IniteItemUI(CharacterSO itemSO)
     {
         this.characterSO = itemSO;
