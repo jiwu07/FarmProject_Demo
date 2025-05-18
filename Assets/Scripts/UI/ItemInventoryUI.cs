@@ -16,6 +16,6 @@ public class ItemInventoryUI : MonoBehaviour
     public void ConfirmPlace()
     {
         if(!PlaceModeManager.instance.IsPlaceModeOn()) return;
-        GridManager.Instance.ConfirmPlace(gridItem);
+        InventoryUI.Instance.ConfirmPlace(gridItem);
     }
 }

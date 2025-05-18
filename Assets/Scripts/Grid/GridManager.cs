@@ -5,9 +5,10 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
-    private Transform placePosition;
+    private Transform placePosition = null;
 
-
+    [SerializeField] private Material normalMaterial;
+    [SerializeField] private Material selectedMaterial;
     //private GridCell[,] map;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,18 @@ public class GridManager : MonoBehaviour
         }
         Instance = this;
         
+    }
+
+    public void SelectPlace(GameObject place)
+    {
+        UnSelectPlace();
+        place.GetComponent<Renderer>().material = selectedMaterial;
+        SetPlacedPosition(place.transform);
+    }
+    public void UnSelectPlace()
+    {
+        if (!placePosition) return;
+        placePosition.GetComponent<Renderer>().material = normalMaterial;
     }
     public void SetPlacedPosition(Transform position)
     {
@@ -48,15 +61,20 @@ public class GridManager : MonoBehaviour
     /// <param name="gridSO">placed grid</param>
     public void Place( GridSO gridSO)
     {
-        Debug.Log("place ground");
-        if (placePosition.GetComponent<GridCell>().IsOccupied()) return;
-        Debug.Log("empty start to place ground");
+        GridCell gc = placePosition.GetComponent<GridCell>();
+        if (placePosition == null || gc.IsOccupied())
+        {
+            return;
+        }
+        gc.SetCurrentSO(gridSO);
+        gc.SetIsOccupied(true);
         //remove the old grid under the place
         if(placePosition.transform.childCount != 0) Destroy(placePosition.transform.GetChild(0));
         //put new grid
         GameObject go =Instantiate(gridSO.Prefab, placePosition.position, Quaternion.identity);
         go.transform.SetParent(placePosition);
         
+        //UnSelectPlace(placePosition.gameObject);
     }
 
     public void ConfirmPlace( GridSO gridSO)

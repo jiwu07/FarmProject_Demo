@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.InputSystem.XR.Haptics;
+using Debug = System.Diagnostics.Debug;
 
 public class GridCell : MonoBehaviour
 {
@@ -9,13 +12,23 @@ public class GridCell : MonoBehaviour
      
     private bool isOccupied = false;
     private GameObject currentCell = null;
-
-
+    private GridSO currentSO;
 
     public bool IsOccupied()
     {
         return isOccupied;
     }
+
+    public void SetCurrentSO(GridSO gridSO)
+    {
+        currentSO = gridSO;
+    }
+
+    public void SetIsOccupied(bool isOccupied)
+    {
+        this.isOccupied = isOccupied;
+    }
+    
     
     public bool IsEmpty()
     {
@@ -25,7 +38,9 @@ public class GridCell : MonoBehaviour
     //logic of interact. like planet stuff etc
     public void Interact(UnityEngine.AI.NavMeshAgent playerAgent)
     {
-        Debug.Log("Interact grid cell");
+        //shown the selecte place
+        GridManager.Instance.SelectPlace(this.gameObject);
+        
         //grid empty and not in place mode
         if (!isOccupied && !PlaceModeManager.instance.IsPlaceModeOn()) return;
         
@@ -33,31 +48,29 @@ public class GridCell : MonoBehaviour
         if (!isOccupied && PlaceModeManager.instance.IsPlaceModeOn())
         {
             //open bag to put stuff like ground etc
-            Debug.Log("Place mode On and free grid cell");
             InventoryUI.Instance.OpenInventory();
-            GridManager.Instance.SetPlacedPosition(transform);
             return;
         }
-        
+
+        InventoryUI.Instance.SetCurrentGrid(currentSO);
         //not empty and in place mode
         if (isOccupied && PlaceModeManager.instance.IsPlaceModeOn())
         {
+            //UnityEngine.Debug.Log("此处应该吧土地收回去");            
             //take the placed prefab away back in bag
-            Debug.Log(gameObject.name + " is not empty and put the stuff to bag ");
-            //todo
-            //empty the grid
-            Destroy(transform.GetChild(0));
+            //put in bag
+            InventoryUI.Instance.PutItem(currentSO);
+            //empty the go under the grid
+            Destroy(transform.GetChild(0).gameObject);
             isOccupied = false;
-            //put the SO to bag
-            
+     
         }
         
         //not empty and not in place mode
         if (isOccupied && !PlaceModeManager.instance.IsPlaceModeOn())
         {
             //go to the placed prefab  anf interact
-            currentCell.GetComponent<GridCell>().Interact(playerAgent);
-            
+            transform.GetChild(0).GetComponent<GridBase>().Interact(playerAgent);
         }
         
         

@@ -35,6 +35,7 @@ public class PlaceModeManager : MonoBehaviour
         if (!isPlaceModeOn)
         {
             player.transform.GetChild(0).gameObject.SetActive(true);
+            GridManager.Instance.UnSelectPlace();
             return;
         }
         player.transform.GetChild(0).gameObject.SetActive(false);

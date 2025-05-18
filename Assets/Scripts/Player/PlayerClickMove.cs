@@ -36,7 +36,6 @@ public class PlayerClickMove : MonoBehaviour
                     playerAgent.stoppingDistance = currentTarget.interactionRange;
                     playerAgent.SetDestination(currentTarget.transform.position);
                 }
-
             }
             else if (hit.collider.CompareTag(Tag.GROUND) && !PlaceModeManager.instance.IsPlaceModeOn())
             {

@@ -60,6 +60,7 @@ public class InventoryUI : MonoBehaviour
          return;
       }
       inventory.SetActive(true);
+      UpdateInventory();
       CharacterUI.Instance.Hide();
       
    }
@@ -74,13 +75,26 @@ public class InventoryUI : MonoBehaviour
    public void Place()
    {
       GridManager.Instance.Place(placedGrid);
-      //remove the placed frid feom bag
+      //remove the placed frid from bag
       RemoveItem(placedGrid);
       //add the grid take back from map
       AddItem(currentGrid);
-      currentGrid = placedGrid;
+      currentGrid = null;
+      placedGrid = null;
+      
+      UpdateInventory();
+      confirmButton.SetActive(false);
+      inventory.SetActive(false);
+   }
+
+   public void PutItem(GridSO grid)
+   {
+      AddItem(currentGrid);
+      currentGrid = null;
       placedGrid = null;
       UpdateInventory();
+
+
    }
 
    public void ConfirmPlace(GridSO grid)
