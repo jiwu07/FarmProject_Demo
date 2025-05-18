@@ -10,9 +10,9 @@ public class GridCell : MonoBehaviour
     public float interactionRange = 1.5f;
 
      
-    private bool isOccupied = false;
-    private GameObject currentCell = null;
-    private GridSO currentSO;
+    [SerializeField]private bool isOccupied = false;
+    [SerializeField]private GameObject currentCell = null;
+    [SerializeField]private GridSO currentSO = null;
 
     public bool IsOccupied()
     {
@@ -56,14 +56,14 @@ public class GridCell : MonoBehaviour
         //not empty and in place mode
         if (isOccupied && PlaceModeManager.instance.IsPlaceModeOn())
         {
-            //UnityEngine.Debug.Log("此处应该吧土地收回去");            
             //take the placed prefab away back in bag
             //put in bag
             InventoryUI.Instance.PutItem(currentSO);
+            currentSO = null;
+            currentCell = null;
             //empty the go under the grid
             Destroy(transform.GetChild(0).gameObject);
             isOccupied = false;
-     
         }
         
         //not empty and not in place mode

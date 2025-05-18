@@ -21,8 +21,10 @@ MonoBehaviour:
     preFab: {fileID: 5680281225615736717, guid: 21b1fe8a3110440308d64ecb8f9d3138,
       type: 3}
   - status: 1
-    preFab: {fileID: 919132149155446097, guid: 7913bac3f1552f145ad4347579fb97f4, type: 3}
+    preFab: {fileID: 1930697805758553515, guid: b03595cf2c58044208983275bc150777,
+      type: 3}
   - status: 2
-    preFab: {fileID: 919132149155446097, guid: 3b6d6903348791541a18ac5756bcabb5, type: 3}
+    preFab: {fileID: 9097779980523057379, guid: e21e0bb23a7024ecc8f7db29f41fa71c,
+      type: 3}
   cost: 8
   earn: 12

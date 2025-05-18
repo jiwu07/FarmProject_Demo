@@ -19,6 +19,7 @@ public enum PlanetStatus
     Half,
     Grown
 }
+
 [System.Serializable]
 public class StatusPrefabsList
 {

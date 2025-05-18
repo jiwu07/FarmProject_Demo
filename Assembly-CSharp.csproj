@@ -59,6 +59,7 @@
      <Compile Include="Assets/Scripts/Interactable/FarmTileInteractable.cs" />
      <Compile Include="Assets/Scripts/Grid/GroundGrid.cs" />
      <Compile Include="Assets/Scripts/SO/GridSO.cs" />
+     <Compile Include="Assets/Scripts/UI/ItemDetail.cs" />
      <Compile Include="Assets/GameControl.cs" />
      <Compile Include="Assets/Scripts/SO/CharacterSO.cs" />
      <Compile Include="Assets/Scripts/Grid/GridBase.cs" />
@@ -69,7 +70,9 @@
      <Compile Include="Assets/Scripts/UI/CharacterUI.cs" />
      <Compile Include="Assets/Scripts/UI/InventoryUI.cs" />
      <Compile Include="Assets/Scripts/Grid/GridCell.cs" />
+     <Compile Include="Assets/Scripts/UI/ShopItem.cs" />
      <Compile Include="Assets/Scripts/UI/ItemInventoryUI.cs" />
+     <Compile Include="Assets/Scripts/UI/ShopUI.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerAnimation.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Scenes" />

@@ -89,12 +89,10 @@ public class InventoryUI : MonoBehaviour
 
    public void PutItem(GridSO grid)
    {
-      AddItem(currentGrid);
+      AddItem(grid);
       currentGrid = null;
       placedGrid = null;
       UpdateInventory();
-
-
    }
 
    public void ConfirmPlace(GridSO grid)
@@ -105,7 +103,7 @@ public class InventoryUI : MonoBehaviour
 
    public void AddItem(GridSO grid)
    {
-      if (grid == null) return;
+      if (!grid) return;
       itemsList.Add(grid);
       
    }

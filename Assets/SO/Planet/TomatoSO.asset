@@ -15,14 +15,15 @@ MonoBehaviour:
   id: 0
   seedName: Tomato
   seedSprite: {fileID: 21300000, guid: eb22710d5cd4e4c818b4ff103f5f4220, type: 3}
-  statusCurrent: 0
+  statusCurrent: 1
   statusPrefabs:
   - status: 0
     preFab: {fileID: 5680281225615736717, guid: 21b1fe8a3110440308d64ecb8f9d3138,
       type: 3}
   - status: 1
-    preFab: {fileID: 919132149155446097, guid: c83122ed90346614eafad7a8049badfd, type: 3}
+    preFab: {fileID: 52050009331916374, guid: aa42f0a4b7f45477fa60e6687938fc6d, type: 3}
   - status: 2
-    preFab: {fileID: 919132149155446097, guid: e6b3a11aa8381e543808a539efcc16b3, type: 3}
+    preFab: {fileID: 8796395148834361109, guid: 69c29a631d03e49ab936eae0936bcc8c,
+      type: 3}
   cost: 5
   earn: 10

@@ -9,7 +9,7 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private Material normalMaterial;
     [SerializeField] private Material selectedMaterial;
-    //private GridCell[,] map;
+    private MeshRenderer[,] mapRender;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,8 @@ public class GridManager : MonoBehaviour
             return; 
         }
         Instance = this;
-        
+        InitialMap();
+
     }
 
     public void SelectPlace(GameObject place)
@@ -38,22 +39,28 @@ public class GridManager : MonoBehaviour
         placePosition = position;
     }
 
-    /*public void InitialMap()
+    public Transform GetPlacePosition()
+    {
+        return placePosition;
+    }
+
+    public void InitialMap()
     {
         int width = transform.childCount;
         int height = transform.GetChild(0).childCount;
 
-        map = new GridCell[width, height];
+        mapRender = new MeshRenderer[width, height];
         for (int x = 0; x < width; x++)
         {
             Transform row = transform.GetChild(x);
             for (int i = 0; i < height; i++)
             {
-                map[x, i] = row.GetChild(i).gameObject.GetComponent<GridCell>() ;
+                mapRender[x, i] = row.GetChild(i).gameObject.GetComponent<MeshRenderer>();
+                mapRender[x, i].enabled = false;
             }
         }
     }
-    */
+    
     
     /// <summary>
     /// generate grid put under this grid
@@ -71,8 +78,9 @@ public class GridManager : MonoBehaviour
         //remove the old grid under the place
         if(placePosition.transform.childCount != 0) Destroy(placePosition.transform.GetChild(0));
         //put new grid
-        GameObject go =Instantiate(gridSO.Prefab, placePosition.position, Quaternion.identity);
-        go.transform.SetParent(placePosition);
+        GameObject go =Instantiate(gridSO.Prefab,placePosition.transform);
+        
+        //go.transform.SetParent(placePosition);
         
         //UnSelectPlace(placePosition.gameObject);
     }
@@ -81,5 +89,25 @@ public class GridManager : MonoBehaviour
     {
         InventoryUI.Instance.ConfirmPlace(gridSO);
     }
+    
+    /// <summary>
+    /// show the grid mesh
+    /// </summary>
+    public  void TurnGridOn()
+    {
+        foreach (MeshRenderer mesh in mapRender)
+        {
+            mesh.enabled = true;
+        }
+    }
+    
+    public void TurnGridOFF()
+    {
+        foreach (MeshRenderer mesh in mapRender)
+        {
+            mesh.enabled = false;
+        }
+    }
+    
     
 }

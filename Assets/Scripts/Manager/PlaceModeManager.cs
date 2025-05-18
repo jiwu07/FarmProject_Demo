@@ -36,13 +36,18 @@ public class PlaceModeManager : MonoBehaviour
         {
             player.transform.GetChild(0).gameObject.SetActive(true);
             GridManager.Instance.UnSelectPlace();
+            GridManager.Instance.TurnGridOFF();
             return;
         }
         player.transform.GetChild(0).gameObject.SetActive(false);
+        GridManager.Instance.TurnGridOn();
+
         
         //make every grid show the grid maybe ? extend todo
         
     }
+
+ 
 
     
     
