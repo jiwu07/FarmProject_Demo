@@ -17,3 +17,6 @@ MonoBehaviour:
   description: Hi, your planet might need some water!!
   icon: {fileID: 21300000, guid: 011bb20a3cd704bf2bfe625b012e71e3, type: 3}
   prefab: {fileID: 6933825080707168147, guid: c0afb9a259e304be0ac9aaed1f6dedf6, type: 3}
+  skills:
+  - skillType: 0
+    cooldown: 0

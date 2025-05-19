@@ -17,3 +17,6 @@ MonoBehaviour:
   description: Everyone need a clean man at home, hahahaha
   icon: {fileID: 21300000, guid: 4fcecc41c926a44f283b1795cf3d57cd, type: 3}
   prefab: {fileID: 8962614808543865968, guid: 9f9785a583ba64c4d93a3663c0865293, type: 3}
+  skills:
+  - skillType: 1
+    cooldown: 0

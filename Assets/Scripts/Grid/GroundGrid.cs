@@ -2,20 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GroundGrid : GridBase
 {
     [SerializeField] private Transform plantHolder;
     [SerializeField] private GameObject interactButton;
     [SerializeField] private MeshRenderer groundRenderer;
+    [SerializeField] private Image progressBar;
 
     private GameObject planetCurrent;
+    [SerializeField]private PlanetStatus currentPlanetStatus;
     private Dictionary<PlanetStatus, GameObject> prefabDict;
+    private GameObject progressBarObject;
 
     private PlanetSO planetSO;
     private GridSO gridSO;
-    private float waitTime = 20f;
-    private float timer;
+    private float waitTime = 5f;
+    private float timer = 0;
     //will show, water,take, (clean the ground maybe). planet action is in the click directly
     private bool isWater;
     private bool isPlanted;
@@ -26,8 +30,15 @@ public class GroundGrid : GridBase
     private void Awake()
     {
         prefabDict = new Dictionary<PlanetStatus, GameObject>();
-
+        progressBar.fillAmount = 0f;
+        progressBarObject = progressBar.transform.parent.gameObject;
+        progressBarObject.SetActive(false);
         
+    }
+
+    public GridSO GetGridSO()
+    {
+        return gridSO;
     }
 
     public void init(PlanetSO planetSo)
@@ -46,9 +57,14 @@ public class GroundGrid : GridBase
         isPlanted = true;
     }
 
+    private void SetProgressBar()
+    {
+        if(!progressBarObject.activeSelf) progressBarObject.SetActive(true);
+        progressBar.fillAmount = timer/waitTime;
+    }
+
     public override void Interact(UnityEngine.AI.NavMeshAgent playerAgent)
     {
-        Debug.Log("interactwith ground");
         if (!isInteractable) return;
         // open bag show planetList or directly shop, but directly, no inventory system
         //if in the place mode,click the ground put back in bag, which means nothing happen here
@@ -58,7 +74,6 @@ public class GroundGrid : GridBase
         if (!isPlanted)
         {
             //if empty then open the shop and buy and planet the seed
-            Debug.Log("open shop to buy seed and planet");
             ShopUI.Instance.OpenShop();
             return;
         }
@@ -67,11 +82,10 @@ public class GroundGrid : GridBase
         if (!isWater)
         {
             //need to be water, check the timer
-            if (planetSO.statusCurrent == PlanetStatus.Half)
+            if (currentPlanetStatus == PlanetStatus.Half)
             {
              //planet till water step, so need to be water  
-             //todo water
-             isWater = true;
+             Water();
              return;
             }
             //else just wait till it can be water
@@ -79,9 +93,10 @@ public class GroundGrid : GridBase
         }
 
         //is water and planet status is grown and ready to take
-        if (planetSO.statusCurrent == PlanetStatus.Grown)
+        if (currentPlanetStatus == PlanetStatus.Grown)
         {
             //todo, take the planet sold as money directly
+            Harvest();
         }
         
         //else just wait
@@ -90,17 +105,21 @@ public class GroundGrid : GridBase
 
     private void Timer()
     {
-        if (!planetSO || planetSO.statusCurrent.Equals(PlanetStatus.Grown)) return;
+        if (!planetSO || currentPlanetStatus.Equals(PlanetStatus.Grown)) return;
         if (isPlanted && !isWater)
         {
-            if (timer < waitTime && planetSO.statusCurrent.Equals(PlanetStatus.Seed))
+            //Debug.Log("isplanet" + isPlanted + "timer start");
+            if (timer < waitTime && currentPlanetStatus.Equals(PlanetStatus.Seed))
             {
+                SetProgressBar();
                 timer += Time.deltaTime;
+                //Debug.Log(timer + "wait for walter");
             }
             else
             {
-                planetSO.statusCurrent = PlanetStatus.Half;
+                currentPlanetStatus = PlanetStatus.Half;
                 interactButton.SetActive(true);
+                progressBarObject.SetActive(false);
                 timer = 0;
             }
 
@@ -108,16 +127,20 @@ public class GroundGrid : GridBase
 
         if (isWater && isPlanted)
         {
-            if (timer < waitTime && planetSO.statusCurrent.Equals(PlanetStatus.Half))
+            if (timer < waitTime && currentPlanetStatus.Equals(PlanetStatus.Half))
             {
+                SetProgressBar();
                 timer += Time.deltaTime;
+                //Debug.Log(timer + "wait for grow");
             }
             else
             {
-                planetSO.statusCurrent = PlanetStatus.Grown;
+                currentPlanetStatus = PlanetStatus.Grown;
                 Grown();
                 interactButton.SetActive(true);
                 timer = 0;
+                progressBarObject.SetActive(false);
+
             }
         }
     }
@@ -137,6 +160,7 @@ public class GroundGrid : GridBase
         init(planetSO);
         planetCurrent = Instantiate(prefabDict[PlanetStatus.Seed], this.transform);
         //inactive the ground mesh the previous object
+        currentPlanetStatus = PlanetStatus.Seed;
         groundRenderer.enabled = false;
         planetCurrent.transform.SetParent(plantHolder);
         interactButton.SetActive(false);
@@ -145,6 +169,13 @@ public class GroundGrid : GridBase
 
     public void Water()
     {
+        
+        if (!Player.Instance.SkillExists(SkillType.Water)) return;
+        //Debug.Log("try to water");
+        Player.Instance.GetPlayerAnimation().Water();
+        //Debug.Log(" watering ");
+        //remove the old prefab and put new
+        ClearPlanet();
         planetCurrent = Instantiate(prefabDict[PlanetStatus.Half], this.transform);
         //inactive the ground mesh the previous object
         planetCurrent.transform.SetParent(plantHolder);
@@ -158,16 +189,29 @@ public class GroundGrid : GridBase
         planetCurrent.transform.SetParent(plantHolder);
     }
 
-    public void Taken()
+    public void Harvest()
     {
+        if (!Player.Instance.SkillExists(SkillType.Harvest)) return;
+        //animation
+        Player.Instance.GetPlayerAnimation().Harvest();
+        //todo,here need to be optimized
+        //Animator planetAnimator = planetCurrent.transform.GetChild(0).GetComponent<Animator>();
+       // if(!planetAnimator) planetAnimator.SetTrigger("Taken");
+        
         isPlanted = false;
         isWater = false;
+        ClearPlanet();
         groundRenderer.enabled = true;
-        Destroy(plantHolder.GetChild(0).gameObject);
         planetCurrent = null;
         planetSO = null;
         prefabDict.Clear();
         interactButton.SetActive(false);
 
+    }
+
+    private void ClearPlanet()
+    {
+        //Debug.Log(plantHolder.GetChild(0));
+        Destroy(plantHolder.GetChild(0).gameObject);
     }
 }

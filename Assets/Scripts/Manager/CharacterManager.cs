@@ -38,6 +38,8 @@ public class CharacterManager : MonoBehaviour
         GameObject go = Instantiate(character.prefab,player.position,Quaternion.identity);
         go.transform.SetParent(player.transform);
         currentPlayer = go;
+        Player.Instance.CharacterSOSwitch(character);
+        
     }
     
      

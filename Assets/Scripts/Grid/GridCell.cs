@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.InputSystem.XR.Haptics;
-using Debug = System.Diagnostics.Debug;
 
 public class GridCell : MonoBehaviour
 {
@@ -38,9 +35,9 @@ public class GridCell : MonoBehaviour
     //logic of interact. like planet stuff etc
     public void Interact(UnityEngine.AI.NavMeshAgent playerAgent)
     {
+        
         //shown the selecte place
         GridManager.Instance.SelectPlace(this.gameObject);
-        
         //grid empty and not in place mode
         if (!isOccupied && !PlaceModeManager.instance.IsPlaceModeOn()) return;
         
@@ -69,6 +66,7 @@ public class GridCell : MonoBehaviour
         //not empty and not in place mode
         if (isOccupied && !PlaceModeManager.instance.IsPlaceModeOn())
         {
+            Debug.Log("Interact  to interact with ground");
             //go to the placed prefab  anf interact
             transform.GetChild(0).GetComponent<GridBase>().Interact(playerAgent);
         }

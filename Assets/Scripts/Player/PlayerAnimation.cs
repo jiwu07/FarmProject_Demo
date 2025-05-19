@@ -8,7 +8,7 @@ public class PlayerAnimation : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
 
-    void Awake()
+    public void Awake()
     {
         animator = GetComponent<Animator>();
         agent = GameObject.Find("Player").GetComponent<NavMeshAgent>();
@@ -20,29 +20,46 @@ public class PlayerAnimation : MonoBehaviour
 
     void Walking()
     {
-        if (agent.remainingDistance < 0.1f|| agent.pathPending)
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            animator.SetBool("IsWalking", false);
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            {
+                animator.SetBool(AnimationParams.IsWalking, false);
+            }
         }
         else
         {
-            animator.SetBool("IsWalking",true);
+            animator.SetBool(AnimationParams.IsWalking, true);
         }
+
     }
 
     void Clean()
     {
-        animator.SetTrigger("Clean");
+        animator.SetTrigger(AnimationParams.Clean);
     }
     
-    void Collect()
+    public void Harvest()
     {
-        animator.SetTrigger("Collect");
+        if (!animator)
+        {
+            //Debug.Log("water animation section in playanimation");
+            animator = GetComponent<Animator>();
+        }
+        Debug.Log(animator + "Harvest");
+        animator.SetTrigger(AnimationParams.Harvest);
     }
 
-    void Water()
+    public void Water()
     {
-        animator.SetTrigger("Water");
+        //Debug.Log("water animation section in playanimation");
+        if (!animator)
+        {
+            //Debug.Log("water animation section in playanimation");
+            animator = GetComponent<Animator>();
+        }
+        Debug.Log("play animation water " + animator.name);
+        animator.SetTrigger(AnimationParams.Water);
   
     }
 }

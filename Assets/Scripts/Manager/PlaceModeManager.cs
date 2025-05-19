@@ -39,6 +39,7 @@ public class PlaceModeManager : MonoBehaviour
             GridManager.Instance.TurnGridOFF();
             return;
         }
+        //InventoryUI.Instance.SetCurrentGrid(null);
         player.transform.GetChild(0).gameObject.SetActive(false);
         GridManager.Instance.TurnGridOn();
 

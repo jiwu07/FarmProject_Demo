@@ -11,5 +11,22 @@ public class CharacterSO : ScriptableObject
     public string description;
     public Sprite icon;
     public GameObject prefab;
+    public List<CharacterSkill> skills;
+
+    
+}
+
+[System.Serializable]
+public class CharacterSkill
+{
+    public SkillType skillType;
+    //for extend todo
+    public float cooldown;
+}
+
+public enum SkillType
+{
+    Water,     
+    Harvest,   
 }
 

@@ -53,7 +53,7 @@ public class InventoryUI : MonoBehaviour
 
    public void OpenInventory()
    {
-      if (inventory.activeInHierarchy)
+      if (inventory.activeSelf)
       {
          inventory.SetActive(false);
          Hide();
@@ -110,13 +110,12 @@ public class InventoryUI : MonoBehaviour
 
    public void RemoveItem(GridSO grid)
    {
-      if (grid == null) return;
+      if (!grid) return;
       itemsList.Remove(grid);
    }
 
    public void GenerateItemsInInventory(GridSO grid)
-   {
-      //Debug.Log(grid.GameObject());
+   { 
      GameObject go = Instantiate(itemPrefab, content.transform);
      go.transform.SetParent(content);
      go.GetComponent<ItemInventoryUI>().IniteItemUI(grid);

@@ -70,6 +70,7 @@
      <Compile Include="Assets/Scripts/UI/CharacterUI.cs" />
      <Compile Include="Assets/Scripts/UI/InventoryUI.cs" />
      <Compile Include="Assets/Scripts/Grid/GridCell.cs" />
+     <Compile Include="Assets/Scripts/UIManager.cs" />
      <Compile Include="Assets/Scripts/UI/ShopItem.cs" />
      <Compile Include="Assets/Scripts/UI/ItemInventoryUI.cs" />
      <Compile Include="Assets/Scripts/UI/ShopUI.cs" />
@@ -117,6 +118,7 @@
      <Folder Include="Assets/SO/CharacterSO" />
      <Folder Include="Assets/Arts/3D/Crops/Tomato" />
      <Folder Include="Assets/TextMesh Pro" />
+     <Folder Include="Assets/PreFabs/Planets" />
      <Folder Include="Assets/AssetHunts!/GameDev Starter Kit - Farming" />
      <Folder Include="Assets/AssetHunts!/GameDev Starter Kit - Farming/Source File" />
      <Folder Include="Assets/AssetHunts!/GameDev Starter Kit - Farming/Asset/Farm Crop Step" />

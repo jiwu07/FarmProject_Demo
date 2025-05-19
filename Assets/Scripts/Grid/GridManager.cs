@@ -28,6 +28,7 @@ public class GridManager : MonoBehaviour
         UnSelectPlace();
         place.GetComponent<Renderer>().material = selectedMaterial;
         SetPlacedPosition(place.transform);
+
     }
     public void UnSelectPlace()
     {
@@ -36,6 +37,16 @@ public class GridManager : MonoBehaviour
     }
     public void SetPlacedPosition(Transform position)
     {
+        if (position.childCount == 0)
+        {
+            InventoryUI.Instance.SetCurrentGrid(null); ;
+        }
+        else
+        {
+            //Debug.Log("setplaced position function " + position.gameObject.name);
+            InventoryUI.Instance.SetCurrentGrid(position.GetChild(0).GetComponent<GroundGrid>().GetGridSO());
+
+        }
         placePosition = position;
     }
 

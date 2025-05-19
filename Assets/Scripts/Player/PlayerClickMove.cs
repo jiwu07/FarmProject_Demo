@@ -17,12 +17,13 @@ public class PlayerClickMove : MonoBehaviour
     {
         mainCam = Camera.main;
         InputManager.ClickMove += HandleClickMove;
+        
     }
 
 
     void HandleClickMove(Vector2 screenPos)
     {
-       
+       //Debug.Log("HandleClickMove");
         //move
         Ray ray = mainCam.ScreenPointToRay(screenPos);
         if (Physics.Raycast(ray, out RaycastHit hit))

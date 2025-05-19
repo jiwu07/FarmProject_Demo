@@ -56,7 +56,7 @@ public class ShopUI : MonoBehaviour
 
     public void ShowItemDetail(PlanetSO planet)
     {
-        Debug.Log(" detail shop+ " + itemDetail);
+        //Debug.Log(" detail shop+ " + itemDetail);
         itemDetail.ShowDetail(planet);
         
     }
