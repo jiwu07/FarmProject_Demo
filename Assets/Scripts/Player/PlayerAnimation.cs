@@ -8,6 +8,8 @@ public class PlayerAnimation : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
 
+    private bool water = false;
+
     public void Awake()
     {
         animator = GetComponent<Animator>();
@@ -16,6 +18,7 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
        Walking();
+       
        
     }
 
@@ -52,13 +55,14 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Water()
     {
+        water = true;
         if (!animator)
         {
             animator = GetComponent<Animator>();
         }
-        Debug.Log("Water animation should be played but somehow not");
         animator.SetTrigger(AnimationParams.Water);
-        
+        Debug.Log("Water animation should be played but somehow not");
+        animator.Play("Base Layer.Water");
   
     }
 }

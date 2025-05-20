@@ -125,7 +125,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: gardener_water
+      name: Water
       takeName: gardener_water
       internalID: 2143429530187259283
       firstFrame: 0

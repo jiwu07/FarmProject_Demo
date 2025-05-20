@@ -35,7 +35,7 @@ public class ItemDetail : MonoBehaviour
       //moneysystem 
       if (CoinManager.Instance.GetCurrentCoins() < planetSo.cost)
       {
-         NotificationUI.Instance.Show("I don't have this skill ;(");
+         NotificationUI.Instance.Show("There is no enough coin! ;(");
          return;
       }
       CoinManager.Instance.SubtractCoin(planetSo.cost);

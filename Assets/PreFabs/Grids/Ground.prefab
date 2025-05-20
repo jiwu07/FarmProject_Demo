@@ -52,7 +52,6 @@ MonoBehaviour:
   interactButton: {fileID: 6223985497007939482}
   groundRenderer: {fileID: 2349522288532095032}
   progressBar: {fileID: 8968889768469112141}
-  currentPlanetStatus: 0
 --- !u!1 &1409190176052240250
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,42 +291,42 @@ PrefabInstance:
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.029
       objectReference: {fileID: 0}
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.284
+      value: -0.228
       objectReference: {fileID: 0}
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.716
       objectReference: {fileID: 0}
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 8555149403792025394, guid: 062ccd3cd1385fd4ba7165ffde7d0ef5,
         type: 3}

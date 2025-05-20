@@ -71,6 +71,8 @@
      <Compile Include="Assets/Scripts/Grid/GridManager.cs" />
      <Compile Include="Assets/Scripts/UI/NotificationUI.cs" />
      <Compile Include="Assets/Scripts/UI/CharacterUI.cs" />
+     <Compile Include="Assets/Scripts/Grid/DecorationGrid.cs" />
+     <Compile Include="Assets/Scripts/SO/DecorationSO.cs" />
      <Compile Include="Assets/Scripts/UI/InventoryUI.cs" />
      <Compile Include="Assets/Scripts/Grid/GridCell.cs" />
      <Compile Include="Assets/Scripts/UIManager.cs" />

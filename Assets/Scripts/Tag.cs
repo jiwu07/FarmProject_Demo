@@ -8,6 +8,7 @@ public class Tag
     public const string NPC = "NPC";
     public const string INTERACTABLE = "Interactable";
     public const string GROUND = "Ground";
+    public const string DECORATION = "Decoration";
     
 }
 

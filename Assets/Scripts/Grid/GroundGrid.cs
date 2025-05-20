@@ -10,9 +10,10 @@ public class GroundGrid : GridBase
     [SerializeField] private GameObject interactButton;
     [SerializeField] private MeshRenderer groundRenderer;
     [SerializeField] private Image progressBar;
+    
+    private PlanetStatus currentPlanetStatus;
 
     private GameObject planetCurrent;
-    [SerializeField]private PlanetStatus currentPlanetStatus;
     private Dictionary<PlanetStatus, GameObject> prefabDict;
     private GameObject progressBarObject;
 
@@ -23,9 +24,10 @@ public class GroundGrid : GridBase
     //will show, water,take, (clean the ground maybe). planet action is in the click directly
     private bool isWater;
     private bool isPlanted;
+    private bool isClearGround = false;
     
     //see if player moving to the tile already
-    private bool isInteractable = true;
+    //private bool isInteractable = true;
 
     private void Awake()
     {
@@ -65,7 +67,7 @@ public class GroundGrid : GridBase
 
     public override void Interact(UnityEngine.AI.NavMeshAgent playerAgent)
     {
-        if (!isInteractable) return;
+        //if (!isInteractable) return;
         // open bag show planetList or directly shop, but directly, no inventory system
         //if in the place mode,click the ground put back in bag, which means nothing happen here
         if (PlaceModeManager.instance.IsPlaceModeOn()) return;
@@ -96,7 +98,9 @@ public class GroundGrid : GridBase
         if (currentPlanetStatus == PlanetStatus.Grown)
         {
             //todo, take the planet sold as money directly
-            Harvest();
+            //Harvest();
+            isClearGround = true;
+
         }
         
         //else just wait
@@ -143,6 +147,8 @@ public class GroundGrid : GridBase
 
             }
         }
+        
+       
     }
 
     private void Update()
@@ -150,6 +156,21 @@ public class GroundGrid : GridBase
         if (isPlanted && !currentPlanetStatus.Equals(PlanetStatus.Grown))
         {
             Timer();
+        }
+        
+        if (isClearGround)
+        {
+            if (timer < waitTime)
+            {
+                SetProgressBar();
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                Harvest();
+                timer = 0;
+                progressBarObject.SetActive(false);
+            }
         }
     }
 
@@ -226,6 +247,7 @@ public class GroundGrid : GridBase
     private void ClearPlanet()
     {
         Destroy(plantHolder.GetChild(0).gameObject);
+        isClearGround = false;
     }
 
     private void ShowNoSkillText()
