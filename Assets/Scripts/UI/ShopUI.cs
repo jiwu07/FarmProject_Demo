@@ -58,7 +58,6 @@ public class ShopUI : MonoBehaviour
     {
         //Debug.Log(" detail shop+ " + itemDetail);
         itemDetail.ShowDetail(planet);
-        
     }
 
     public void CloseShop()

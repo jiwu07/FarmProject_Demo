@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/Interactable/InteractableObject.cs" />
+     <Compile Include="Assets/Scripts/UI/CoinUI.cs" />
      <Compile Include="Assets/Scripts/Grid/InteractButton.cs" />
      <Compile Include="Assets/Scripts/UI/CharacterItemUI.cs" />
      <Compile Include="Assets/Scripts/SO/PlanetSO.cs" />
@@ -64,9 +65,11 @@
      <Compile Include="Assets/Scripts/SO/CharacterSO.cs" />
      <Compile Include="Assets/Scripts/Grid/GridBase.cs" />
      <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
+     <Compile Include="Assets/Scripts/Manager/CoinManager.cs" />
      <Compile Include="Assets/Scripts/UI/CharacterDetailUI.cs" />
      <Compile Include="Assets/Scripts/Manager/CharacterManager.cs" />
      <Compile Include="Assets/Scripts/Grid/GridManager.cs" />
+     <Compile Include="Assets/Scripts/UI/NotificationUI.cs" />
      <Compile Include="Assets/Scripts/UI/CharacterUI.cs" />
      <Compile Include="Assets/Scripts/UI/InventoryUI.cs" />
      <Compile Include="Assets/Scripts/Grid/GridCell.cs" />

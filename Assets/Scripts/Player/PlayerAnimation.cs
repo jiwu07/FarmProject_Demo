@@ -16,6 +16,7 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
        Walking();
+       
     }
 
     void Walking()
@@ -43,23 +44,21 @@ public class PlayerAnimation : MonoBehaviour
     {
         if (!animator)
         {
-            //Debug.Log("water animation section in playanimation");
             animator = GetComponent<Animator>();
         }
-        Debug.Log(animator + "Harvest");
+        Debug.Log( "Harvest animation should be played");
         animator.SetTrigger(AnimationParams.Harvest);
     }
 
     public void Water()
     {
-        //Debug.Log("water animation section in playanimation");
         if (!animator)
         {
-            //Debug.Log("water animation section in playanimation");
             animator = GetComponent<Animator>();
         }
-        Debug.Log("play animation water " + animator.name);
+        Debug.Log("Water animation should be played but somehow not");
         animator.SetTrigger(AnimationParams.Water);
+        
   
     }
 }

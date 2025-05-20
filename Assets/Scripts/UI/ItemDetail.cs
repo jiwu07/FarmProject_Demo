@@ -31,8 +31,14 @@ public class ItemDetail : MonoBehaviour
    {
       Transform currentGround = GridManager.Instance.GetPlacePosition();
       if(!currentGround) return;
-      //todo
+      
       //moneysystem 
+      if (CoinManager.Instance.GetCurrentCoins() < planetSo.cost)
+      {
+         NotificationUI.Instance.Show("I don't have this skill ;(");
+         return;
+      }
+      CoinManager.Instance.SubtractCoin(planetSo.cost);
       
       
       //planet it

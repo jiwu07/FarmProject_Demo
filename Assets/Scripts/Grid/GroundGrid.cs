@@ -18,7 +18,7 @@ public class GroundGrid : GridBase
 
     private PlanetSO planetSO;
     private GridSO gridSO;
-    private float waitTime = 5f;
+    private float waitTime = 2f;
     private float timer = 0;
     //will show, water,take, (clean the ground maybe). planet action is in the click directly
     private bool isWater;
@@ -147,7 +147,7 @@ public class GroundGrid : GridBase
 
     private void Update()
     {
-        if (isPlanted)
+        if (isPlanted && !currentPlanetStatus.Equals(PlanetStatus.Grown))
         {
             Timer();
         }
@@ -169,10 +169,15 @@ public class GroundGrid : GridBase
 
     public void Water()
     {
-        
-        if (!Player.Instance.SkillExists(SkillType.Water)) return;
-        //Debug.Log("try to water");
+
+        if (!Player.Instance.SkillExists(SkillType.Water))
+        {
+            ShowNoSkillText();
+            return;
+        }
+        //Debug.Log("try to water"); todo somehow not playing
         Player.Instance.GetPlayerAnimation().Water();
+       
         //Debug.Log(" watering ");
         //remove the old prefab and put new
         ClearPlanet();
@@ -185,19 +190,27 @@ public class GroundGrid : GridBase
 
     private void Grown()
     {
+        ClearPlanet();
         planetCurrent = Instantiate(prefabDict[PlanetStatus.Grown], this.transform);
         planetCurrent.transform.SetParent(plantHolder);
     }
 
     public void Harvest()
     {
-        if (!Player.Instance.SkillExists(SkillType.Harvest)) return;
+        if (!Player.Instance.SkillExists(SkillType.Harvest))
+        {
+            ShowNoSkillText();
+            return;
+        }
         //animation
         Player.Instance.GetPlayerAnimation().Harvest();
         //todo,here need to be optimized
         //Animator planetAnimator = planetCurrent.transform.GetChild(0).GetComponent<Animator>();
        // if(!planetAnimator) planetAnimator.SetTrigger("Taken");
-        
+       
+        //coin system
+        CoinManager.Instance.AddCoin(planetSO.earn);
+       
         isPlanted = false;
         isWater = false;
         ClearPlanet();
@@ -206,12 +219,17 @@ public class GroundGrid : GridBase
         planetSO = null;
         prefabDict.Clear();
         interactButton.SetActive(false);
-
+        
+        
     }
 
     private void ClearPlanet()
     {
-        //Debug.Log(plantHolder.GetChild(0));
         Destroy(plantHolder.GetChild(0).gameObject);
+    }
+
+    private void ShowNoSkillText()
+    {
+        NotificationUI.Instance.Show("I don't have this skill ;(");
     }
 }
