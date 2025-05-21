@@ -45,7 +45,7 @@ public class InputManager : MonoBehaviour
 
         if (IsPointerOverUI())
         {
-            //Debug.Log("uiiii");
+            //Debug.Log("point at uiiii");
             yield break;
         }
 

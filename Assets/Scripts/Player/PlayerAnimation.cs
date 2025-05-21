@@ -62,7 +62,6 @@ public class PlayerAnimation : MonoBehaviour
         }
         animator.SetTrigger(AnimationParams.Water);
         Debug.Log("Water animation should be played but somehow not");
-        animator.Play("Base Layer.Water");
   
     }
 }

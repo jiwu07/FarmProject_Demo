@@ -8,7 +8,7 @@ using Random = System.Random;
 public class DecorationGrid : GridBase
 {
     [SerializeField] private GridSO groundSO;
-    private DecorationSO DecorationSO;
+    private DecorationSO DecorationSO; //for extend, maybe can have more similar building
     private int clickTime = 0;
     private int triggerTime = 1;
 
@@ -27,6 +27,7 @@ public class DecorationGrid : GridBase
     /// <param name="playerAgent"></param>
     public override void Interact(UnityEngine.AI.NavMeshAgent playerAgent)
     {
+        //add costmoney logic and maybe also a text of sum of the money spend on this lotto
         clickTime++;
         //seems like no interact at all
         if (clickTime == 0)

@@ -114,12 +114,10 @@ public class GroundGrid : GridBase
         if (!planetSO || currentPlanetStatus.Equals(PlanetStatus.Grown)) return;
         if (isPlanted && !isWater)
         {
-            //Debug.Log("isplanet" + isPlanted + "timer start");
             if (timer < waitTime && currentPlanetStatus.Equals(PlanetStatus.Seed))
             {
                 SetProgressBar();
                 timer += Time.deltaTime;
-                //Debug.Log(timer + "wait for walter");
             }
             else
             {

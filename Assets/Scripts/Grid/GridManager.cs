@@ -89,10 +89,8 @@ public class GridManager : MonoBehaviour
         //remove the old grid under the place
         if(placePosition.transform.childCount != 0) Destroy(placePosition.transform.GetChild(0));
         //put new grid
-        Debug.Log("create ground");
+        //Debug.Log("create ground");
         GameObject go =Instantiate(gridSO.Prefab,placePosition.transform);
-        
-        //go.transform.SetParent(placePosition);
         
         //UnSelectPlace(placePosition.gameObject);
     }

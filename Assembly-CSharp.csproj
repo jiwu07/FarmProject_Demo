@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/UI/CoinUI.cs" />
-     <Compile Include="Assets/Scripts/Grid/InteractButton.cs" />
      <Compile Include="Assets/Scripts/UI/CharacterItemUI.cs" />
      <Compile Include="Assets/Scripts/SO/PlanetSO.cs" />
      <Compile Include="Assets/Scripts/FollowTarget.cs" />

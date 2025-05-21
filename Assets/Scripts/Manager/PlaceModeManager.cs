@@ -42,9 +42,6 @@ public class PlaceModeManager : MonoBehaviour
         //InventoryUI.Instance.SetCurrentGrid(null);
         player.transform.GetChild(0).gameObject.SetActive(false);
         GridManager.Instance.TurnGridOn();
-
-        
-        //make every grid show the grid maybe ? extend todo
         
     }
 
