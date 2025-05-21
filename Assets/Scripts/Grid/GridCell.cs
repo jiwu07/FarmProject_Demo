@@ -26,10 +26,10 @@ public class GridCell : MonoBehaviour
         this.isOccupied = isOccupied;
         if (isOccupied)
         {
-            GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<MeshRenderer>().enabled = false;
             return;
         }
-        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = true;
         
 
     }
