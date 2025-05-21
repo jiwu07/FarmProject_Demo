@@ -18,7 +18,7 @@ public class ItemDetail : MonoBehaviour
       gameObject.SetActive(true);
 
       planetSo = planet;
-      itemName.text = planet.name;
+      itemName.text = planet.seedName;
       icon.sprite = planetSo.seedSprite;
    }
 

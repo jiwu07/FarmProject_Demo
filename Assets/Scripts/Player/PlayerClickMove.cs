@@ -36,6 +36,12 @@ public class PlayerClickMove : MonoBehaviour
             }
             else if (hit.collider.CompareTag(Tag.GROUND) && !PlaceModeManager.instance.IsPlaceModeOn())
             {
+                //close all ui
+                CharacterUI.Instance.Hide();
+                InventoryUI.Instance.Hide();
+                ShopUI.Instance.CloseShop();
+                
+                
                 playerAgent.SetDestination(hit.point);
                 return;
             }else if (hit.collider.CompareTag(Tag.DECORATION) && !PlaceModeManager.instance.IsPlaceModeOn())

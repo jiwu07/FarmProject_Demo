@@ -69,7 +69,7 @@ public class CharacterUI : MonoBehaviour
         }
         
         //create new item
-        List<CharacterSO> characters = CharacterManager.instance.GetCharacters();
+        List<CharacterSO> characters = CharacterManager.Instance.GetCharacters();
         foreach (var character in characters)
         {
             GameObject go = Instantiate(itemPreFab, content.transform);

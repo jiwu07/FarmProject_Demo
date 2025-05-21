@@ -21,7 +21,7 @@ public class TaskDetailUI : MonoBehaviour
 
     public void Init(CoinTaskSO taskSO)
     {
-        taskName.text = taskSO.name;
+        taskName.text = taskSO.taskName;
         taskDescription.text = taskSO.taskDescription;
         taskNeed = taskSO.taskObjectNeed;
         this.taskSO = taskSO;

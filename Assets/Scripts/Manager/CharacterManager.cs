@@ -6,18 +6,18 @@ using UnityEngine.TextCore.Text;
 
 public class CharacterManager : MonoBehaviour
 {
-    public static CharacterManager instance;
+    public static CharacterManager Instance;
     [SerializeField] private List<CharacterSO> characters;
     [SerializeField] private Transform player;
     private GameObject currentPlayer;
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
             return;
         }
-        instance = this;
+        Instance = this;
 
         InitialCharacter();
     }

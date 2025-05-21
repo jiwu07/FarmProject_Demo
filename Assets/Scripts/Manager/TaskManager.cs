@@ -42,6 +42,7 @@ public class TaskManager : MonoBehaviour
                 GiveTask();
                 mark.SetActive(true);
                 taskCountText.gameObject.SetActive(false);
+                return;
             }
            timer += Time.deltaTime;
            taskCountText.text = Mathf.CeilToInt(duration - timer).ToString();

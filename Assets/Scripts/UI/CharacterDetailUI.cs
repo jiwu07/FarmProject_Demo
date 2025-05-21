@@ -38,6 +38,6 @@ public class CharacterDetailUI : MonoBehaviour
     }
     public void SwitchCharacter()
     {
-        CharacterManager.instance.SwitchCharacter(characterSO);
+        CharacterManager.Instance.SwitchCharacter(characterSO);
     }
 }
