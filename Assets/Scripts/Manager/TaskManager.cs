@@ -9,6 +9,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField]private List<CoinTaskSO> coinTasks = new List<CoinTaskSO>();
     [SerializeField] private Transform taskList;
     [SerializeField] private TextMeshProUGUI taskCountText;
+    [SerializeField] private GameObject mark;
     
     private float timer = 0;
     private float duration = 5f;
@@ -33,11 +34,13 @@ public class TaskManager : MonoBehaviour
         
         if (taskList.childCount == 0)
         {
+            if(mark.activeSelf) mark.SetActive(false);
             if(!taskCountText.gameObject.activeSelf)taskCountText.gameObject.SetActive(true);
             if (timer >= duration)
             {
                 timer = 0;
                 GiveTask();
+                mark.SetActive(true);
                 taskCountText.gameObject.SetActive(false);
             }
            timer += Time.deltaTime;

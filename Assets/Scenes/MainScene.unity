@@ -413,6 +413,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 430d71b4736bf4e62a993765291656d4, type: 2}
   taskList: {fileID: 614820964}
   taskCountText: {fileID: 1123483730}
+  mark: {fileID: 1982392916}
 --- !u!65 &20467899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13613,6 +13614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Collectable_Diamond_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007326890911491983, guid: c30d29d6f45c94e4ab419af5b48ced21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7724934934052658147, guid: c30d29d6f45c94e4ab419af5b48ced21,
         type: 3}

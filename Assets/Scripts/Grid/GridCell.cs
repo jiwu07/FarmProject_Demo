@@ -24,6 +24,14 @@ public class GridCell : MonoBehaviour
     public void SetIsOccupied(bool isOccupied)
     {
         this.isOccupied = isOccupied;
+        if (isOccupied)
+        {
+            GetComponent<MeshRenderer>().enabled = true;
+            return;
+        }
+        GetComponent<MeshRenderer>().enabled = false;
+        
+
     }
     
     
@@ -60,7 +68,7 @@ public class GridCell : MonoBehaviour
             currentCell = null;
             //empty the go under the grid
             Destroy(transform.GetChild(0).gameObject);
-            isOccupied = false;
+            SetIsOccupied(false);
         }
         
         //not empty and not in place mode

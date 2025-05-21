@@ -86,7 +86,8 @@ public class GroundGrid : GridBase
             //need to be water, check the timer
             if (currentPlanetStatus == PlanetStatus.Half)
             {
-             //planet till water step, so need to be water  
+             //planet till water step, so need to be water 
+             if (!Player.Instance.SkillExists(SkillType.Water)) return;
              Water();
              return;
             }
@@ -99,6 +100,7 @@ public class GroundGrid : GridBase
         {
             //todo, take the planet sold as money directly
             //Harvest();
+            if (!Player.Instance.SkillExists(SkillType.Harvest)) return;
             isClearGround = true;
 
         }
@@ -191,7 +193,6 @@ public class GroundGrid : GridBase
     public void Water()
     {
 
-        if (!Player.Instance.SkillExists(SkillType.Water)) return;
         
         //Debug.Log("try to water"); todo somehow not playing
         Player.Instance.GetPlayerAnimation().Water();
@@ -215,7 +216,6 @@ public class GroundGrid : GridBase
 
     public void Harvest()
     {
-        if (!Player.Instance.SkillExists(SkillType.Harvest)) return;
         
         //animation
         Player.Instance.GetPlayerAnimation().Harvest();

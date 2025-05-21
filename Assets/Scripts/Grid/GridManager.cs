@@ -109,6 +109,7 @@ public class GridManager : MonoBehaviour
     {
         foreach (MeshRenderer mesh in mapRender)
         {
+            if (mesh.GetComponent<GridCell>().IsOccupied()) continue; 
             mesh.enabled = true;
         }
     }
