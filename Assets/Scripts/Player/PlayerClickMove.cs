@@ -11,13 +11,14 @@ public class PlayerClickMove : MonoBehaviour
     private Camera mainCam;
     private GameControl inputActions;
     private GridCell currentTarget;
+    private float interactionRange = 1f;
     
 
     void Start()
     {
         mainCam = Camera.main;
         InputManager.ClickMove += HandleClickMove;
-        
+        playerAgent.stoppingDistance = interactionRange;
     }
 
 
@@ -31,26 +32,23 @@ public class PlayerClickMove : MonoBehaviour
             if (hit.collider.CompareTag(Tag.INTERACTABLE))
             {
                 hit.collider.GetComponent<GridCell>().Interact(playerAgent);
-                currentTarget = hit.collider.GetComponent<GridCell>();
-                if (!PlaceModeManager.instance.IsPlaceModeOn())
-                {
-                    playerAgent.stoppingDistance = currentTarget.interactionRange;
-                    playerAgent.SetDestination(currentTarget.transform.position);
-                }
+                
             }
             else if (hit.collider.CompareTag(Tag.GROUND) && !PlaceModeManager.instance.IsPlaceModeOn())
             {
-                currentTarget = null;
-                playerAgent.stoppingDistance = 0;
                 playerAgent.SetDestination(hit.point);
-            }
-
-            if (hit.collider.CompareTag(Tag.DECORATION) && !PlaceModeManager.instance.IsPlaceModeOn())
+                return;
+            }else if (hit.collider.CompareTag(Tag.DECORATION) && !PlaceModeManager.instance.IsPlaceModeOn())
             {
                 hit.collider.GetComponent<DecorationGrid>().Interact(playerAgent);
-                playerAgent.stoppingDistance = 0;
-                playerAgent.SetDestination(currentTarget.transform.position);
+                
             }
+            playerAgent.SetDestination(hit.point);
+
+            /*if (!PlaceModeManager.instance.IsPlaceModeOn())
+            {
+                playerAgent.SetDestination(hit.point);
+            }*/
         }
     }
 

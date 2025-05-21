@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridCell : MonoBehaviour
 {
-    public float interactionRange = 1.5f;
+    //public float interactionRange = 1.5f;
 
      
     [SerializeField]private bool isOccupied = false;

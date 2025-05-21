@@ -35,6 +35,7 @@ public class CharacterManager : MonoBehaviour
     public void SwitchCharacter(CharacterSO character)
     {
         if (currentPlayer != null) Destroy(currentPlayer);
+        player.rotation = Quaternion.Euler(0,0, 0);
         GameObject go = Instantiate(character.prefab,player.position,Quaternion.identity);
         go.transform.SetParent(player.transform);
         currentPlayer = go;

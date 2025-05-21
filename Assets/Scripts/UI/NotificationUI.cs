@@ -11,7 +11,7 @@ public class NotificationUI : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI textUI;
     [SerializeField] private Image imageUI;
-    private float floatUpSpeed = 1f;
+    private float floatUpSpeed = 0.8f;
     private float alpha = 0;
     private void Awake()
     {

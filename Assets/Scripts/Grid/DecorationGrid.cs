@@ -28,17 +28,24 @@ public class DecorationGrid : GridBase
     public override void Interact(UnityEngine.AI.NavMeshAgent playerAgent)
     {
         //seems like no interact at all
-        NotificationUI.Instance.Show("Click "+triggerTime.ToString()+ " times to get something xD");
+        if (clickTime == 0)
+        {
+            NotificationUI.Instance.Show("Click "+triggerTime.ToString()+ " times to get something!");
+        }
+        else
+        {
+            NotificationUI.Instance.Show("Click " + clickTime.ToString() );
+        }
         
         clickTime++;
 
         if (clickTime >= triggerTime)
         {
             clickTime = 0;
-            /*triggerTime = UnityEngine.Random.Range(2, 7);
+            triggerTime = UnityEngine.Random.Range(2, 7);
             //something happen
             int something = UnityEngine.Random.Range(1, 5);
-            int treat = UnityEngine.Random.Range(0, 20);*/
+            int treat = UnityEngine.Random.Range(0, 20);
             
             switch (something)
             {
