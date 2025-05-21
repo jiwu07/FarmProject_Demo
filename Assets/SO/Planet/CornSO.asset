@@ -27,4 +27,4 @@ MonoBehaviour:
     preFab: {fileID: 9097779980523057379, guid: e21e0bb23a7024ecc8f7db29f41fa71c,
       type: 3}
   cost: 8
-  earn: 12
+  earn: 50

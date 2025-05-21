@@ -41,7 +41,9 @@ public class PlayerClickMove : MonoBehaviour
             }else if (hit.collider.CompareTag(Tag.DECORATION) && !PlaceModeManager.instance.IsPlaceModeOn())
             {
                 hit.collider.GetComponent<DecorationGrid>().Interact(playerAgent);
-                
+            }else if (hit.collider.CompareTag(Tag.TASK))
+            {
+                hit.collider.GetComponent<TaskManager>().Interact(playerAgent);
             }
             playerAgent.SetDestination(hit.point);
 

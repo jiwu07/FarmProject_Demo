@@ -66,7 +66,7 @@ public class GridCell : MonoBehaviour
         //not empty and not in place mode
         if (isOccupied && !PlaceModeManager.instance.IsPlaceModeOn())
         {
-            Debug.Log("Interact  to interact with ground");
+            //Debug.Log("Interact  to interact with ground");
             //go to the placed prefab  anf interact
             transform.GetChild(0).GetComponent<GridBase>().Interact(playerAgent);
         }

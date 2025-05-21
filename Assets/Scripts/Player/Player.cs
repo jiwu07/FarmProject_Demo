@@ -38,15 +38,14 @@ public class Player : MonoBehaviour
             return true;
          }
       }
-      //show notification
-      //todo
-      Debug.Log("you don't have skill " + skillName);
+      NotificationUI.Instance.Show("I don't have this skill ;(");
+
       return false;
    }
 
    public PlayerAnimation GetPlayerAnimation()
    {
-      Debug.Log("get player animation " + playerAnimation);
+      //Debug.Log("get player animation " + playerAnimation);
       return playerAnimation;
    }
    

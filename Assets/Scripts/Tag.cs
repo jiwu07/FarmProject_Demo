@@ -9,6 +9,8 @@ public class Tag
     public const string INTERACTABLE = "Interactable";
     public const string GROUND = "Ground";
     public const string DECORATION = "Decoration";
+    public const string TASK = "Task";
+
     
 }
 

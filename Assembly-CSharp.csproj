@@ -45,21 +45,20 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.12f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets/Scripts/Interactable/InteractableObject.cs" />
      <Compile Include="Assets/Scripts/UI/CoinUI.cs" />
      <Compile Include="Assets/Scripts/Grid/InteractButton.cs" />
      <Compile Include="Assets/Scripts/UI/CharacterItemUI.cs" />
      <Compile Include="Assets/Scripts/SO/PlanetSO.cs" />
      <Compile Include="Assets/Scripts/FollowTarget.cs" />
+     <Compile Include="Assets/Scripts/Manager/TaskManager.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerClickMove.cs" />
      <Compile Include="Assets/Scripts/Tag.cs" />
      <Compile Include="Assets/Scripts/Manager/PlaceModeManager.cs" />
      <Compile Include="Assets/Scripts/Player/Player.cs" />
-     <Compile Include="Assets/Scripts/Interactable/TaskBoardInteractable.cs" />
      <Compile Include="Assets/Scripts/Manager/InputManager.cs" />
-     <Compile Include="Assets/Scripts/Interactable/FarmTileInteractable.cs" />
      <Compile Include="Assets/Scripts/Grid/GroundGrid.cs" />
      <Compile Include="Assets/Scripts/SO/GridSO.cs" />
+     <Compile Include="Assets/Scripts/SO/TaskSO.cs" />
      <Compile Include="Assets/Scripts/UI/ItemDetail.cs" />
      <Compile Include="Assets/GameControl.cs" />
      <Compile Include="Assets/Scripts/SO/CharacterSO.cs" />
@@ -71,6 +70,7 @@
      <Compile Include="Assets/Scripts/Grid/GridManager.cs" />
      <Compile Include="Assets/Scripts/UI/NotificationUI.cs" />
      <Compile Include="Assets/Scripts/UI/CharacterUI.cs" />
+     <Compile Include="Assets/Scripts/UI/TaskDetailUI.cs" />
      <Compile Include="Assets/Scripts/Grid/DecorationGrid.cs" />
      <Compile Include="Assets/Scripts/SO/DecorationSO.cs" />
      <Compile Include="Assets/Scripts/UI/InventoryUI.cs" />
@@ -96,6 +96,7 @@
      <Folder Include="Assets/Arts/3D/Worker" />
      <Folder Include="Assets/Arts/Materials/Ground" />
      <Folder Include="Assets/AssetHunts!/GameDev Starter Kit - Farming/Asset/Farm Tree" />
+     <Folder Include="Assets/SO/TaskSO" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
      <Folder Include="Assets/Scripts/UI" />
      <Folder Include="Assets/AssetHunts!/GameDev Starter Kit - Farming/Asset" />
@@ -108,6 +109,7 @@
      <Folder Include="Assets/LowPolyFarmLite/Models" />
      <Folder Include="Assets/Scenes/SampleScene" />
      <Folder Include="Assets/AssetHunts!/GameDev Starter Kit - Farming/Animation" />
+     <Folder Include="Assets/PreFabs/Items" />
      <None Include="Assets/AssetHunts!/GameDev Starter Kit - Farming/Hello Fellow Dev!.txt" />
      <Folder Include="Assets/TextMesh Pro/Resources/Fonts &amp; Materials" />
      <Folder Include="Assets/Arts/Materials/Corn" />
@@ -168,7 +170,6 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <Folder Include="Assets/Scripts/Grid" />
      <Folder Include="Assets/AssetHunts!/GameDev Starter Kit - Farming/Asset/Prop/Animated Props" />
-     <Folder Include="Assets/Scripts/Interactable" />
      <Folder Include="Assets/AssetHunts!/GameDev Starter Kit - Farming/Asset/Farm Crop Sign" />
      <Folder Include="Assets/Scripts" />
      <Folder Include="Assets/Arts/Sprite/Ground" />

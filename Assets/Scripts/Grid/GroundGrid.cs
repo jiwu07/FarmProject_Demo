@@ -191,11 +191,8 @@ public class GroundGrid : GridBase
     public void Water()
     {
 
-        if (!Player.Instance.SkillExists(SkillType.Water))
-        {
-            ShowNoSkillText();
-            return;
-        }
+        if (!Player.Instance.SkillExists(SkillType.Water)) return;
+        
         //Debug.Log("try to water"); todo somehow not playing
         Player.Instance.GetPlayerAnimation().Water();
        
@@ -218,11 +215,8 @@ public class GroundGrid : GridBase
 
     public void Harvest()
     {
-        if (!Player.Instance.SkillExists(SkillType.Harvest))
-        {
-            ShowNoSkillText();
-            return;
-        }
+        if (!Player.Instance.SkillExists(SkillType.Harvest)) return;
+        
         //animation
         Player.Instance.GetPlayerAnimation().Harvest();
         //todo,here need to be optimized
@@ -250,8 +244,5 @@ public class GroundGrid : GridBase
         isClearGround = false;
     }
 
-    private void ShowNoSkillText()
-    {
-        NotificationUI.Instance.Show("I don't have this skill ;(");
-    }
+ 
 }
