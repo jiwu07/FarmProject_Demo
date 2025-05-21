@@ -27,6 +27,7 @@ public class DecorationGrid : GridBase
     /// <param name="playerAgent"></param>
     public override void Interact(UnityEngine.AI.NavMeshAgent playerAgent)
     {
+        clickTime++;
         //seems like no interact at all
         if (clickTime == 0)
         {
@@ -37,7 +38,7 @@ public class DecorationGrid : GridBase
             NotificationUI.Instance.Show("Click " + clickTime.ToString() );
         }
         
-        clickTime++;
+        
 
         if (clickTime >= triggerTime)
         {
