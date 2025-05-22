@@ -23,7 +23,7 @@ A fixed-perspective 3D farming game demo developed in Unity 2022.3.12f1, primari
 ## 👥 Character Abilities
 
 - **Gardener**: Can plant and water crops.
-- **Harvester / Employee**: Can harvest and sell crops.
+- **Harvester / Employee**: Can plant, harvest and sell crops.
 
 ## ⚙️ Technical Features
 
