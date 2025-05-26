@@ -23,7 +23,7 @@ A fixed-perspective 3D farming game demo developed in Unity 2022.3.12f1, primari
 ## 👥 Character Abilities
 
 - **Gardener**: Can plant and water crops.
-- **Harvester / Employee**: Can harvest and sell crops.
+- **Harvester / Employee**: Can plant, harvest and sell crops.
 
 ## ⚙️ Technical Features
 
@@ -59,6 +59,7 @@ A fixed-perspective 3D farming game demo developed in Unity 2022.3.12f1, primari
 
 This project is a solo development initiative to demonstrate proficiency in Unity gameplay programming, modular system architecture, and UI/UX integration.
 
+All 3D models, environments, and character assets are sourced from the Unity Asset Store and are clearly labeled in the project directory. These assets were used solely for prototyping purposes; all core logic, interaction systems, and custom scripts were independently developed.
 
 
 
@@ -114,5 +115,7 @@ This project is a solo development initiative to demonstrate proficiency in Unit
 
 ## 🤝 特别说明
 
-本项目由独立开发者个人完成，旨在展示 Unity 架构能力与核心系统设计。
+本项目为个人独立开发，旨在展示在 Unity 游戏玩法编程、模块化系统架构设计及 UI/UX 集成方面的能力。
+
+项目中所使用的三维模型、场景和角色资源均来自 Unity Asset Store，已在项目目录中清晰标注，仅用于原型展示目的。项目的核心逻辑、交互系统及自定义脚本均由本人独立开发完成。
 
